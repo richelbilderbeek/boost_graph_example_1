@@ -1,2 +1,6 @@
 # boost_graph_example_1
-Boost.Graph example that uses Graphviz
+
+Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)
+---|---
+master|[![Build Status](https://travis-ci.org/richelbilderbeek/boost_graph_example_1.svg?branch=master)](https://travis-ci.org/richelbilderbeek/boost_graph_example_1)
+
