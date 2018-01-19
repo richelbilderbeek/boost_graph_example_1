@@ -2,18 +2,8 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
 
-//C++14 and Boost
-auto f() noexcept
-{
-  boost::adjacency_list<> g;
-  boost::add_vertex(g);
-  return boost::num_vertices(g);
-}
-
 int main()
 {
-  if (f() != 1) return 1;
-
   //Define the type of graph:
   //boost::adjacency_list is the 'Swiss army knife' graph
   typedef boost::adjacency_list
@@ -29,9 +19,9 @@ int main()
     boost::property<boost::vertex_name_t,std::string>,
     //All edges are relation of type std::string
     boost::property<boost::edge_name_t,std::string>
-  > Graph;
+  > graph;
 
-  Graph g;
+  graph g;
 
   const auto v1 = boost::add_vertex(std::string("Mr. A"),g);
   const auto v2 = boost::add_vertex(std::string("Mrs. B"),g);
@@ -42,10 +32,8 @@ int main()
   boost::add_edge(v3,v4,std::string("Collegues"),g);
   boost::add_edge(v1,v4,std::string("Roommates"),g);
 
-  //Write graph to std::cout
+  std::cout << "Writing graph to file #1:\n";
   boost::write_graphviz(std::cout,g);
-
-  //Writing graph to file
   {
     std::ofstream f("test.dot");
     //Problems:
@@ -54,9 +42,10 @@ int main()
     boost::write_graphviz(f,g);
   }
 
+  std::cout << "Writing graph to file #2:\n";
   {
     std::ifstream f("test.dot");
-    Graph h;
+    graph h;
     boost::dynamic_properties dp(
       boost::ignore_other_properties
     );

@@ -8,3 +8,31 @@ master|[![Build Status](https://travis-ci.org/richelbilderbeek/boost_graph_examp
 
 It defines a graph of person names and their relationships. 
 Then the graph is written to .dot file and plotted using KGraphViewer.
+
+
+
+```
+Writing graph to file #1:
+graph G {
+0;
+1;
+2;
+3;
+0--1 ;
+1--2 ;
+2--3 ;
+0--3 ;
+}
+
+Writing graph to file #2:
+graph G {
+0;
+1;
+2;
+3;
+0--1 ;
+1--2 ;
+2--3 ;
+0--3 ;
+}
+```
